@@ -30,11 +30,11 @@ modules:
         - noctalia
 
   - type: rpm-ostree
-      repos:
-        - https://downloads.1password.com/linux/rpm/stable/1password.repo
-      install:
-        - 1password
-        - 1password-cli
+    repos:
+      - https://downloads.1password.com/linux/rpm/stable/1password.repo
+    install:
+      - 1password
+      - 1password-cli
       
     #remove:
       #packages:
