@@ -29,14 +29,9 @@ modules:
         - hyprland
         - noctalia
 
-  - type: rpm-ostree
-    repos:
-      - https://downloads.1password.com/linux/rpm/stable/1password.repo
-    keys:
-      - https://downloads.1password.com/linux/keys/1password.asc
+  - type: bling
     install:
       - 1password
-      - 1password-cli
       
     #remove:
       #packages:
