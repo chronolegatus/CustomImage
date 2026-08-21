@@ -6,7 +6,7 @@ name: customimage
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/bluefin
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
@@ -20,17 +20,28 @@ modules:
   - type: dnf
     repos:
       copr:
+        - lionheartp/Hyprland
         - atim/starship
     install:
       packages:
         - micro
         - starship
-    remove:
-      packages:
+        - hyprland
+        - noctalia
+
+  - type: rpm-ostree
+      repos:
+        - https://downloads.1password.com/linux/rpm/stable/1password.repo
+      install:
+        - 1password
+        - 1password-cli
+      
+    #remove:
+      #packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        #- firefox
+        #- firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
   - type: default-flatpaks
     configurations:
