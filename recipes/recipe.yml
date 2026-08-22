@@ -27,7 +27,7 @@ modules:
         - micro
         - starship
         - hyprland
-        - hyprland-guitutils
+        - hyprland-guiutils
         - xdg-desktop-portal-hyprland
         - noctalia
 
