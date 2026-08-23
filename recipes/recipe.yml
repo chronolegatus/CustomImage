@@ -6,7 +6,7 @@ name: customimage
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/bluefin
+base-image: ghcr.io/ublue-os/base-main
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
@@ -16,6 +16,8 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+      - source: greetd-config.toml
+        destination: /etc/greetd/config.toml
 
   - type: dnf
     repos:
@@ -30,10 +32,33 @@ modules:
         - hyprland-guiutils
         - xdg-desktop-portal-hyprland
         - noctalia
+        # greetd stuff
+        - greetd
+        - polkit
+        - accountsservice
+        - noctalia-greeter
+        # batteries I need to put back in
+        - pipewire
+        - wireplumber
+        - bluez
+        - bluez-tools
+        - brightnessctl
+        - playerctl
+        - hyprpolkitagent      # polkit auth agent for the Hyprland session
+        - kitty                # terminal fallback (Noctalia has no terminal)
+        - nautilus              # file manager fallback
+        - papirus-icon-theme
+        - jetbrains-mono-fonts-all
 
   - type: bling
     install:
       - 1password
+
+  - type: systemd
+    system:
+      enable:
+        - greetd.service
+        - accounts-daemon.service
       
     #remove:
       #packages:
