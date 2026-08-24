@@ -31,6 +31,7 @@ modules:
         - hyprland
         - hyprland-guiutils
         - xdg-desktop-portal-hyprland
+        - hyprcursor
         - noctalia
         # greetd stuff
         - greetd
@@ -49,6 +50,7 @@ modules:
         - nautilus              # file manager fallback
         - papirus-icon-theme
         - jetbrains-mono-fonts-all
+        - fish
 
   - type: bling
     install:
@@ -59,6 +61,8 @@ modules:
       enable:
         - greetd.service
         - accounts-daemon.service
+
+  - type: brew
       
     #remove:
       #packages:
