@@ -63,6 +63,11 @@ modules:
         - accounts-daemon.service
 
   - type: brew
+
+  - type: rpm-ostree
+    install:
+      - ublue-os-udev-rules
+      - upower
       
     #remove:
       #packages:
