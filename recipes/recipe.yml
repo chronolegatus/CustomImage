@@ -33,6 +33,7 @@ modules:
         - xdg-desktop-portal-hyprland
         - hyprcursor
         - noctalia
+        - niri
         # greetd stuff
         - greetd
         - polkit
