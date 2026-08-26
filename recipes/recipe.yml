@@ -52,6 +52,7 @@ modules:
         - papirus-icon-theme
         - jetbrains-mono-fonts-all
         - fish
+        - gvfs-smb
 
   - type: bling
     install:
