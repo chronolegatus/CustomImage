@@ -68,7 +68,6 @@ modules:
 
   - type: rpm-ostree
     install:
-      - ublue-os-udev-rules
       - upower
       
     #remove:
